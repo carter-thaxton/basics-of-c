@@ -17,6 +17,6 @@ Programming cultures reflect the times and context of their development.  The We
 
 C is a language.  It's also a culture.  I'd like to share what I know of this culture.  I've lived in C-land for many years, and I like to think I speak the C equivalent of American Broadcast English, which lacks any obvious regional dialect.  I also speak C++, and I use a simplified version of it, sort of like Simplified Chinese.  That means anything I say here should be relatively nonconfrontational, and should get plenty of nods from a similarly-educated audience, rather than raised eyebrows.
 
-The good fundamentals of UNIX have been written about many times.  The fact that Node.js embraces those fundamentals has also been a common theme recently.  However, UNIX is also tied up with C.  UNIX is our Rome, and C is its Latin.  All good programmers should know it.  One day we may move on, but programming is still in its infancy, and it behooves us to understand and embrace our shared cultural roots.
+The good fundamentals of UNIX have been written about many times.  The fact that Node.js embraces those UNIX fundamentals has also been a common theme recently.  However, UNIX was first associated with C, its lingua franca.  UNIX is the Rome of computing, and C is its Latin.  All good programmers should know it, even if it's no longer the most spoken language.  One day we may move on, but software is still in its infancy, and it behooves us all to understand and embrace our shared cultural roots.
 
 Let's get to it.
