@@ -114,9 +114,9 @@ Let's make this really concrete, and break out a new tool: `nm`
 
 Cool.  `nm` is short for 'name'.  Srsly?  We had to shorten the word 'name'?
 
-Anyway, ignore the `EH_frame0` and the lines that end with `.eh`.  That's an old Mac thing.
+Anyway, this program reads object files and tells you what's in them.  Object files are just raw bytes, with enough minimal format to tell the linker and other tools what those bytes are.
 
-What we see is that this this object file contains definitions for `_add` and `_multiply`, just like we'd expect.  The number indicates the offset address within the object file where the definition is located.  The `T` means that data is intended to be located into the "text" section.  It's a horrible name, but "text" in this context means "executable code".  That's right.  These are functions that are executable code.  We'll see examples of other sections later.
+Ignore the `EH_frame0` and the lines that end with `.eh`.  That's an old Mac thing.  What we see is that this this object file contains definitions for `_add` and `_multiply`, just like we'd expect.  The number indicates the offset address within the object file where the definition is located.  The `T` means that data is intended to be located into the "text" section.  It's a horrible name, but "text" in this context means "executable code".  That's right.  These are functions that are executable code.  We'll see examples of other sections later.
 
 What about `main.o`?
 
@@ -137,6 +137,8 @@ But look closely, it has `_add`, `_multiply`, and even `_printf` there with a `U
 
 When the linker runs, it links up the undefined uses of `_add` and `_multiply` in `main.o` with the definitions of those same symbols in `simple_math.o`.
 
+Each of these little entries that actually define something (as opposed to the ones that have no address, and are marked with a `U`) is just a raw sequence of bytes.  For executable code, the bytes are the actual instructions that will be executed by your CPU.  They just haven't been put in the right place yet.  Linking is the process of moving those bytes around, and doing just enough patching of the numbers within those bytes, so that they point to each other.
+
 Let's go a bit more advanced, and look at `main` itself:
 
 ```
@@ -156,12 +158,13 @@ Let's go a bit more advanced, and look at `main` itself:
 0000000100000d90 T start
 ```
 
-`_main`, `_add`, and `_multiply` are all there and defined in the text section.  But WTF?  `printf` is still undefined!?
+`_main`, `_add`, and `_multiply` are all there and defined in the text section.  Excellent.  What this means is that the instructions in `_main` are actually referring to the real addresses of `_add` and `_multiply`.  What addresses are those?  Well, looks like `100000e60` and `100000e80`, respectively.  Those are the actual virtual addresses that will be used when you run the program.  I say virtual, because modern OSes have a layer of indirection between the addresses your program uses and the actual physical addresses that data is stored in.  But we'll have to discuss virtual memory and MMUs another time.  If you were running on a really small microcontroller, these would be the physical addresses that you burn into your EEPROM or whatever.  Modern OSes kind of simulate that idea, and try their hardest to let each program operate like it has the entire computer all to itself, full memory address space and all.
 
-Now we're getting a bit out of C per se, but this is still part of the cultural landscape, so let's explore it a bit.
+But wait.  WTF?  `printf` is still undefined!?
+
+Now we're really getting a bit out of C per se, but this is still part of the cultural landscape, so let's explore it a bit.
 On a Mac, there's a system called `dyld`, which is short for "dynamic loader".  Basically, linking `printf` will be done at the start of your program, rather than right now.  Why is that?  Well, there's a good reason.  We don't want multiple definitions of `printf` and all of its dependencies copied all over the memory of your computer.  It's just too common.  If everyone statically linked, rather than dynamically linked, then every program would contain a copy of all of its dependencies, all the way down, and would actually load that copy into memory when it ran.  80% of of your memory would be redundant.  Dynamically linking lets your OS do the stitching up of common things at runtime rather than at build time, which has lots of little benefits, like cache locality, I/O optimization, and so forth.  Anytime you see a file that ends in `.dylib`, or `.so`, or `.dll`, that's what those are:  libraries that are designed to be linked at runtime, rather than statically at build time.  They're just like `.o` files, but they have extra stuff in them that works with the OS.  Unfortunately, that also means they're very OS-specific, so the details are quite different across computers.
 
-Anyway, enough of that.  There's tons of stuff to know about how dynamic linking actually works, but thankfully, you don't really have to know about it too much to use C and the various libraries that come with your computer.
+Anyway, enough of that.  There's tons of stuff to know about how dynamic linking and loading actually works, but thankfully, you don't really have to know about it too much to use C and the various libraries that come with your computer.
 
 I told you I'd talk about those `#ifndef` macros.  Well, let's cover that with some more C examples in the next lesson.
-
