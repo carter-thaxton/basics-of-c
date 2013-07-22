@@ -1,4 +1,5 @@
-## intro
+intro
+=====
 
 The great thing about learning any language is that you mostly learn the "culture" in and around the language.  The syntax and even deep semantic structure are not what is important.  Rather, it's the context in which the language thrives that is most interesting.  This is why most educators agree that the best way to learn a language is by immersion.
 

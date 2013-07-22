@@ -1,4 +1,5 @@
-## separate-compilation
+separate-compilation
+====================
 
 Separate compilation is an important concept in C.  It lets you compile less than all of your code when you make incremental changes to source files.  It's also used for precompiling libraries, and then not having to recompile them just because you changed your program.  In fact, your system comes with many precompiled libraries that will likely never be recompiled even if they could be.  Yet, you use them every day, both when developing software, and when just using your computer.
 

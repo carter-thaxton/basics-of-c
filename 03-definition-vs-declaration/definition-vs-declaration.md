@@ -1,0 +1,2 @@
+definition-vs-declaration
+=========================
