@@ -1,6 +1,7 @@
 
 ## hello
 
+#### hello.c
 ```
 #include <stdio.h>
 
@@ -10,6 +11,7 @@ int main(int argc, char *argv[]) {
 }
 ```
 
+#### at command line
 ```
 > gcc -o hello hello.c
 > ./hello
