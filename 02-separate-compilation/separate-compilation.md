@@ -39,13 +39,13 @@ In C, we separate our "header files" from our "source files".  A header file *de
 
 To use a component, you `#include` a header file.  The contents of header files should only be *declarations*, not *definitions*.
 
-There's an important rule in C, when dealing with header files:  Declarations must precede their use.
+There's an important rule in C: Declarations must precede their use.
 
-Declarations tell the compiler about the *type* of something.  As the compiler parses code, it builds up a dictionary of declarations by name.  This dictionary contains types.  So, in our case of parsing `simple_math.h`, the compiler would create two entries: one for `add` and one for `multiply`.  For each entry, it stores the type, e.g. the fact that it is a function, and the *signature* of the function.  A signature is just a fancy name for how many parameters (the arity) and types of those parameters, as well as the type of the return value.  It uses this information when it encounters the use of an identifier, like a call to a function, e.g. `printf`.  As it parses the call, it checks that the types match what arguments are being passed, and does various book-keeping.
+Declarations tell the compiler about the *type* of something.  As the compiler parses code, it builds up a dictionary in RAM of declarations by name.  This dictionary contains types.  So, in our case of parsing `simple_math.h`, the compiler would create two entries: one for `add` and one for `multiply`.  For each entry, it stores the type, e.g. the fact that it is a function, and the *signature* of the function.  A signature is just a fancy name for how many parameters (the arity) and types of those parameters, as well as the type of the return value.  It uses this information when it encounters the use of an identifier, like a call to a function, e.g. `printf`.  As it parses the call, it checks that the types match what arguments are being passed, and does various book-keeping.
 
 Now you can understand why we `#include <stdio.h>` in our original example.  If the compiler didn't see the declarations in that header file, it would have no ideas what `printf` is when we use it down below.
 
-Let's ignore the preprocessor macros that say `#ifndef`, `#define`, and `#endif`.  I'll come back and explain that in a bit.
+Let's ignore the preprocessor macros that say `#ifndef`, `#define`, and `#endif`.  I'll come back and explain that soon enough.
 
 Unlike our 'hello' example, this component doesn't have a `main` function.  Nor should it.  It's not intended to be the entry point of a program.  It's intended to be used from other parts of a larger program.
 

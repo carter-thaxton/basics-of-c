@@ -2,6 +2,8 @@
 hello-world
 ===========
 
+In the spirit of the C culture, we'd be remiss not to begin with "Hello, World".
+
 #### hello.c
 ```
 #include <stdio.h>
@@ -20,7 +22,6 @@ Hello, world!
 > echo $?
 0
 ```
-
 
 Let's take a look at each line of this entire incantation:
 
