@@ -1,7 +1,7 @@
 intro
 =====
 
-The great thing about learning any language is that you mostly learn the "culture" in and around the language.  The syntax and even deep semantic structure are not what is important.  Rather, it's the context in which the language thrives that is most interesting.  This is why most educators agree that the best way to learn a language is by immersion.
+The great thing about learning any language is that you mostly learn the "culture" in and around the language.  The syntax and even deep semantic structure are not what is most interesting.  Rather, it's the context in which the language thrives that is of utmost importance.  This is why most educators agree that the best way to learn a language is by immersion.
 
 It's also why "how" you travel is so important.  You must be open to other ways of living.  If you don't come home changed, you didn't really travel.  You just "did" Europe or whatever.  You won't learn a language by "doing" a country.  If you really prefer that terminology:  it has to "do" you.
 
@@ -15,8 +15,8 @@ Each of these languages is much more than a collection of syntax.  It's a whole 
 
 Programming cultures reflect the times and context of their development.  The Web and the Internet have fueled the growth of shared libraries and communities around programming languages, and only enrichened the corresponding cultures.  New languages developed since the Web and Github became commonplace have a different feel to them.  Using Node.js is particularly fresh, because it does two things very well:  embraces the web and its culture, and also bridges to UNIX and its culture of good fundamentals.
 
-C is a language.  It's also a culture.  I'd like to share what I know of this culture.  I've lived in C-land for many years, and I like to think I speak the C equivalent of American Broadcast English, which lacks any obvious regional dialect.  I also speak C++, and I use a simplified version of it, sort of like Simplified Chinese.  That means anything I say here should be relatively nonconfrontational, and should get plenty of nods from a similarly-educated audience, rather than raised eyebrows.
+C is a language.  It's also a culture.  I'd like to share what I know of this culture.  I've lived in C-land for many years, and I like to think I speak the C equivalent of American Broadcast English, which lacks any obvious regional dialect.  I also speak C++, and I use a simplified version of it, which is common to almost every implementation.  That means anything I say here should be relatively nonconfrontational, and should get plenty of nods from a similarly-educated audience, rather than raised eyebrows.
 
-The good fundamentals of UNIX have been written about many times.  The fact that Node.js embraces those UNIX fundamentals has also been a common theme recently.  However, UNIX was first associated with C, its lingua franca.  UNIX is the Rome of computing, and C is its Latin.  All good programmers should know it, even if it's no longer the most spoken language.  One day we may move on, but software is still in its infancy, and it behooves us all to understand and embrace our shared cultural roots.
+The good fundamentals of UNIX have been written about many times.  The fact that Node.js embraces those UNIX fundamentals has also been a common theme recently.  However, UNIX was first associated with C, its lingua franca.  UNIX is the Rome of computing, and C is its Latin.  All good programmers should know it, even if it's no longer the most spoken language.  It behooves us all to understand and embrace our shared cultural roots.
 
 Let's get to it.
