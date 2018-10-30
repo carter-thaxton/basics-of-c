@@ -41,9 +41,9 @@ This is a declaration of a function, and a definition, all in one line.  We'll g
 
 An `int` is a signed integer, but its size is actually not exactly specified by the C standard.  It's typically 32-bits these days, but on small little microcontrollers, it can be 16 bits.
 
-The names used here are standard.  `argc` means "argument count".  `argv` means "argument vector".  Every few years, and even in other programming cultures, someone tries to rename the ubiquitous `argv` to `args`, because that would just make sense, but it never catches on.  `main` is a special function name.  If you name a function `main`, it will be the first thing in your program that gets executed.
+The names used here are standard.  `argc` means "argument count".  `argv` means "argument vector".  Every few years, and even in other programming cultures, someone tries to rename the ubiquitous `argv` to `args`, because that would just make sense, but it never seems to catch on.  `main` is a special function name.  Whatever function is named `main` will be the first thing in your program to be executed.
 
-The open brace at the end of the line means we are starting the function definition.
+The opening brace at the end of the line means we are starting the function definition.
 
 
 ```
@@ -51,12 +51,12 @@ printf("Hello, world!\n");
 ```
 This is a statement, which consists of a call to a function named `printf`.  It's passing a single string argument, with a constant value: "Hello, world!\n".
 
-Strings in C are a whole subject in themselves.  The basics, however, are pretty straightforward.  Literal strings (in other words, ones you explicitly write out in your source code, as opposed to ones you read in from a file at runtime or something), are simply enclosed in double-quotes.  Single-quotes mean just one character in C, so we don't use those for whole strings.  Some special escaped characters are allowed in C string literals, such as '\n', which means a newline.  Let's not digress here into '\n' vs '\r' and all that.  Suffice it to say that unfortunately, some operating systems have different newline characters than others.  Most of the time, however, you can (and should) just use '\n'.  The '\n' character has an actual value of 10.
+Strings in C are a whole subject in themselves.  The basics, however, are pretty straightforward.  Literal strings (in other words, ones you explicitly write out in your source code, as opposed to ones you read in from a file at runtime or something), are simply enclosed in double-quotes.  Single-quotes mean just one character in C, so we don't use those for multi-character strings.  Some special escaped characters are allowed in C string literals, such as '\n', which means a newline.  Let's not digress here into '\n' vs '\r' and all that.  Suffice it to say that unfortunately, some operating systems have different newline characters than others.  Most of the time, however, you can (and should) just use '\n'.  The '\n' character has an actual value of 10.
 
 The other characters in the string also have integer values, using an encoding called ASCII.  In ASCII, upper-case 'A' is 65, lower-case 'a' is 97, a single space is 32, exclamation point is 33, and so forth.  So "Hello, world!\n" is actually an array of bytes:
   `[72, 101, 108, 108, 111, 44, 32, 119, 111, 114, 108, 100, 33, 10, 0]`.
 
-Note that the array ends with a zero.  That's called the NUL terminator (which is not to be confused with the term "null pointer").  In C, strings are typically NUL-terminated.  The length of the string is not actually stored anywhere automatically.  The string is not an object, with a method like `.length` or anything like that.  It's literally just an array of bytes in memory.  Nothing more.  Without the NUL, there'd be no good way to figure out where it ends.
+Note that the array ends with a zero.  That's called the NUL terminator (which is not to be confused with the term "null pointer").  In C, strings are typically NUL-terminated.  The length of the string is not actually stored anywhere automatically.  The string is not an object, with a method like `.length` or anything like that.  It's literally just a sequence of bytes in memory.  Nothing more.  Without the NUL, there'd be no good way to figure out where it ends.
 
 It's worth pointing out that every statement in C ends with a semicolon.  Deal with it.  Whitespace is almost completely ignored, except to keep words apart like `int main`.  Whether you use a space or a tab or a newline for whitespace doesn't matter at all to the compiler.  The only thing that keeps the statements apart is the semicolon.
 
@@ -78,7 +78,7 @@ This ends the function definition, and the program.
 ```
 > gcc -o hello hello.c
 ```
-Now let's look at how we compile and run our program.  Save the above program into a file called `hello.c`.  Then open up the terminal, cd into the directory where you saved the file, and type that line at the prompt.  GCC means "GNU C Compiler", and it comes with most UNIX systems these days.  Learn about it, and love it.  Richard Stallman, say what you like about the guy, has done the world a favor, and supplied everyone with a free open-source compiler that comes with almost every computer system you will develop on.  It's available on Windows, too, of course.  Just gotta go get Cygwin setup or whatever.  I'm going to just assume you have gcc already.  If not, stop what you're doing and go get it.  That's more important than this anyway.
+Now let's look at how we compile and run our program.  Save the above program into a file called `hello.c`.  Then open up the terminal, cd into the directory where you saved the file, and type that line at the prompt.  GCC means "GNU C Compiler", and it comes with most UNIX systems these days.  Learn about it, and love it.  Richard Stallman did the world a favor, and supplied everyone with a free open-source compiler that now comes with almost every computer system you will develop on.  It's available on Windows, too, of course.  Just gotta go get Cygwin setup or whatever.  I'm going to just assume you have gcc already.  If not, stop what you're doing and go get it.  That's more important than this anyway.
 
 If successful, nothing at all happens when you type that command.  You just see the next prompt.  That's a UNIX-ism.  Success is completely silent.  Errors occur early and loudly.
 
